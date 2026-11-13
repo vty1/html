@@ -42,6 +42,7 @@ body {
   transition: transform .2s, box-shadow .2s;
 }
 .boton:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(160, 82, 45, .38); }
+.boton-sec { background: #fff; color: var(--canela); box-shadow: inset 0 0 0 1.5px var(--rosa); }
 .boton:focus-visible, #sprite:focus-visible, .scroller:focus-visible { outline: 3px solid var(--dorado); outline-offset: 3px; }
 
 /* ---------- Fondo: corazoncitos pixel flotando ---------- */

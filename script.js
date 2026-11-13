@@ -45,16 +45,25 @@ function beso() {
   b.addEventListener("animationend", () => b.remove());
   escena.append(b);
 }
-const besos = reduce ? 0 : setInterval(beso, 1100);
+let besos = reduce ? 0 : setInterval(beso, 1100), ocultar, iniciado = false;
 
 $("#abrir").addEventListener("click", () => {
   clearInterval(besos);
   const entrada = $("#entrada");
   entrada.classList.add("salir");
-  setTimeout(() => { entrada.hidden = true; }, reduce ? 0 : 900);
+  ocultar = setTimeout(() => { entrada.hidden = true; }, reduce ? 0 : 900);
   $("#principal").hidden = false;
-  iniciar();
+  if (!iniciado) { iniciado = true; iniciar(); } // el loop y las copias del tablero se crean una sola vez
   arrancarMusica();
+});
+
+$("#volver").addEventListener("click", () => {
+  clearTimeout(ocultar);
+  const entrada = $("#entrada");
+  entrada.hidden = false;
+  requestAnimationFrame(() => entrada.classList.remove("salir"));
+  $("#principal").hidden = true;
+  if (!reduce) besos = setInterval(beso, 1100);
 });
 
 // ---------- Carrusel ----------
