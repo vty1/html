@@ -19,7 +19,7 @@
     <div class="escena">
       <p class="burbuja">¡Papoi, dale click y recuerda que eres linda!</p>
       <button id="sprite" type="button" aria-label="Papoi: tócala para soltar corazones">
-        <img src="fotos/papoi-recorte.webp" alt="Paula, mi papoi, mandando besos" width="577" height="640">
+        <img src="fotos/papoi-recorte.webp" alt="Paula, mi papoi, mandando besos" width="1145" height="1271">
       </button>
     </div>
     <button id="abrir" class="boton" type="button">Ábrelo, mi amor</button>
@@ -31,7 +31,7 @@
       <h2 class="titulo" id="titulo-motivos"></h2>
       <div class="clase">
         <div class="profe" aria-hidden="true">
-          <img src="fotos/papoi-recorte.webp" alt="" width="577" height="640">
+          <img src="fotos/papoi-recorte.webp" alt="" width="1145" height="1271">
           <span class="puntero"></span>
         </div>
         <div class="tablero">
@@ -43,7 +43,6 @@
       </div>
       <div class="acciones">
         <button id="btn-mensaje" class="boton" type="button">Un mensaje para ti</button>
-        <button id="btn-musica" class="boton boton-sec" type="button" aria-pressed="false" hidden>♪ Música</button>
       </div>
     </section>
 
@@ -61,10 +60,29 @@
     <form method="dialog"><button class="boton" type="submit">Te amo 💛</button></form>
   </dialog>
 
-  <audio id="musica" src="musica.mp3" loop preload="none"></audio>
+  <!-- Reproductor de música: la margarita gira mientras suena -->
+  <div id="radio" hidden>
+    <p class="aviso" id="aviso">Aquí puedes silenciar la música 🎵</p>
+    <button id="margarita" type="button" aria-pressed="false" aria-label="Silenciar música">
+      <svg viewBox="-50 -50 100 100" aria-hidden="true">
+        <g fill="#fff" stroke="#E8B4B8" stroke-width="1.5">
+          <ellipse rx="9" ry="22" cy="-24"/><ellipse rx="9" ry="22" cy="-24" transform="rotate(30)"/>
+          <ellipse rx="9" ry="22" cy="-24" transform="rotate(60)"/><ellipse rx="9" ry="22" cy="-24" transform="rotate(90)"/>
+          <ellipse rx="9" ry="22" cy="-24" transform="rotate(120)"/><ellipse rx="9" ry="22" cy="-24" transform="rotate(150)"/>
+          <ellipse rx="9" ry="22" cy="-24" transform="rotate(180)"/><ellipse rx="9" ry="22" cy="-24" transform="rotate(210)"/>
+          <ellipse rx="9" ry="22" cy="-24" transform="rotate(240)"/><ellipse rx="9" ry="22" cy="-24" transform="rotate(270)"/>
+          <ellipse rx="9" ry="22" cy="-24" transform="rotate(300)"/><ellipse rx="9" ry="22" cy="-24" transform="rotate(330)"/>
+        </g>
+        <circle r="13" fill="#F2C230" stroke="#C9A227" stroke-width="2"/>
+      </svg>
+      <span class="tachado" aria-hidden="true"></span>
+    </button>
+    <div id="yt" aria-hidden="true"></div>
+  </div>
 
   <script src="fotos.js"></script>
   <script src="motivos.js"></script>
   <script src="script.js"></script>
+  <script src="https://www.youtube.com/iframe_api" async></script>
 </body>
 </html>

@@ -54,6 +54,7 @@ $("#abrir").addEventListener("click", () => {
   setTimeout(() => { entrada.hidden = true; }, reduce ? 0 : 900);
   $("#principal").hidden = false;
   iniciar();
+  arrancarMusica();
 });
 
 // ---------- Carrusel ----------
@@ -151,14 +152,42 @@ function iniciar() {
   })(antes);
 }
 
-// ---------- Mensaje y música ----------
+// ---------- Mensaje ----------
 $("#btn-mensaje").addEventListener("click", () => $("#mensaje").showModal());
 
-const audio = $("#musica"), btnMusica = $("#btn-musica");
-fetch("musica.mp3", { method: "HEAD" }).then((r) => { if (r.ok) btnMusica.hidden = false; }).catch(() => {});
-btnMusica.addEventListener("click", () => {
-  if (audio.paused) audio.play(); else audio.pause();
-  const on = !audio.paused;
-  btnMusica.setAttribute("aria-pressed", on);
-  btnMusica.textContent = on ? "♪ Pausar música" : "♪ Música";
+// ---------- Música (YouTube) ----------
+const VIDEO = "2m5vpz7ufSY";
+let player, quierePlay = false;
+window.onYouTubeIframeAPIReady = () => {
+  player = new YT.Player("yt", {
+    width: 200, height: 200, videoId: VIDEO,
+    playerVars: { loop: 1, playlist: VIDEO, controls: 0, playsinline: 1 },
+    events: {
+      onReady: () => { if (quierePlay) player.playVideo(); },
+      onStateChange: (e) => $("#margarita").classList.toggle("sonando", e.data === YT.PlayerState.PLAYING && !player.isMuted()),
+    },
+  });
+};
+
+function arrancarMusica() { // se llama desde el clic en "Ábrelo" (gesto del usuario = se permite audio)
+  $("#radio").hidden = false;
+  setTimeout(() => $("#aviso").classList.add("fuera"), 7000);
+  quierePlay = true;
+  if (player && player.playVideo) player.playVideo();
+}
+
+$("#margarita").addEventListener("click", () => {
+  if (!player || !player.isMuted) return;
+  const btn = $("#margarita");
+  if (player.getPlayerState() !== YT.PlayerState.PLAYING) { player.unMute(); player.playVideo(); }
+  else if (player.isMuted()) player.unMute();
+  else player.mute();
+  // isMuted() tarda un instante en reflejar el cambio
+  setTimeout(() => {
+    const silencio = player.isMuted();
+    btn.classList.toggle("sonando", !silencio);
+    btn.setAttribute("aria-pressed", silencio);
+    btn.setAttribute("aria-label", silencio ? "Activar música" : "Silenciar música");
+  }, 150);
+  $("#aviso").classList.add("fuera");
 });

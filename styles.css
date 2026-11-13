@@ -42,7 +42,6 @@ body {
   transition: transform .2s, box-shadow .2s;
 }
 .boton:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(160, 82, 45, .38); }
-.boton-sec { background: #fff; color: var(--canela); box-shadow: inset 0 0 0 1.5px var(--rosa); }
 .boton:focus-visible, #sprite:focus-visible, .scroller:focus-visible { outline: 3px solid var(--dorado); outline-offset: 3px; }
 
 /* ---------- Fondo: corazoncitos pixel flotando ---------- */
@@ -254,6 +253,30 @@ dialog {
 }
 dialog::backdrop { background: rgba(62, 39, 35, .45); backdrop-filter: blur(4px); }
 #mensaje-texto { white-space: pre-line; font-size: 1.15rem; line-height: 1.7; margin: 0 0 1.5rem; }
+
+/* ---------- Radio margarita ---------- */
+#radio { position: fixed; right: 18px; bottom: 18px; z-index: 5; display: flex; align-items: center; gap: 10px; }
+#yt, #radio iframe { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+#margarita {
+  position: relative; width: 64px; height: 64px; padding: 0; border: 0; border-radius: 50%;
+  background: rgba(255, 255, 255, .7); cursor: pointer;
+  box-shadow: 0 6px 18px rgba(62, 39, 35, .25);
+}
+#margarita svg { width: 100%; height: 100%; animation: girar 6s linear infinite; animation-play-state: paused; }
+#margarita.sonando svg { animation-play-state: running; }
+#margarita .tachado { /* línea cuando está en silencio */
+  position: absolute; left: 8px; right: 8px; top: 50%; height: 4px; border-radius: 2px;
+  background: var(--canela); transform: rotate(-45deg);
+}
+#margarita.sonando .tachado { display: none; }
+@keyframes girar { to { transform: rotate(360deg); } }
+.aviso {
+  margin: 0; padding: 8px 12px; border-radius: 12px;
+  background: #fff; color: var(--texto); font-size: .85rem;
+  box-shadow: 0 4px 14px rgba(62, 39, 35, .18);
+  transition: opacity .8s;
+}
+.aviso.fuera { opacity: 0; pointer-events: none; }
 
 /* ---------- Celular ---------- */
 @media (max-width: 767px) {
