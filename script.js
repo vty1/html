@@ -32,7 +32,23 @@ $("#sprite").addEventListener("click", () => {
   }
 });
 
+// Besos que salen de la boca mientras se mueve de lado a lado.
+function beso() {
+  const escena = $(".escena"), e = escena.getBoundingClientRect(), s = $("#sprite").getBoundingClientRect();
+  const b = document.createElement("span");
+  b.className = "beso";
+  b.textContent = "💋";
+  b.style.left = `${s.left - e.left + s.width / 2}px`;
+  b.style.top = `${s.top - e.top + s.height * 0.5}px`;
+  b.style.setProperty("--dx", `${Math.random() * 120 - 60}px`);
+  b.style.setProperty("--rot", `${Math.random() * 40 - 20}deg`);
+  b.addEventListener("animationend", () => b.remove());
+  escena.append(b);
+}
+const besos = reduce ? 0 : setInterval(beso, 1100);
+
 $("#abrir").addEventListener("click", () => {
+  clearInterval(besos);
   const entrada = $("#entrada");
   entrada.classList.add("salir");
   setTimeout(() => { entrada.hidden = true; }, reduce ? 0 : 900);

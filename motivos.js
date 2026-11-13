@@ -45,4 +45,4 @@ const MOTIVOS = [
 
 // ✏️ Escribe aquí tu mensaje final (sale en el botón "Un mensaje para ti").
 // Usa \n para saltos de línea.
-const MENSAJE_FINAL = "MENSAJE_FINAL — escribe aquí tu mensaje para Paula 💛";
+const MENSAJE_FINAL = "Paula, usted es lo mejor. De verdad se lo digo 💛";
