@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Para mi papoi 💛</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="fondo" aria-hidden="true"></div>
+
+  <!-- Pantalla de entrada -->
+  <section id="entrada">
+    <h1 class="titulo">Para mi papoi linda 💛</h1>
+    <div class="escena">
+      <p class="burbuja">¡Papoi, dale click y recuerda que eres linda!</p>
+      <button id="sprite" type="button" aria-label="Papoi en 8 bits: tócala para soltar corazones">
+        <img src="fotos/papoi-8bit.png" alt="Paula convertida en personaje de 8 bits" width="512" height="568">
+      </button>
+    </div>
+    <button id="abrir" class="boton" type="button">Ábrelo, mi amor</button>
+  </section>
+
+  <!-- Página principal -->
+  <main id="principal" hidden>
+    <section class="aula">
+      <h2 class="titulo" id="titulo-motivos"></h2>
+      <div class="clase">
+        <div class="profe" aria-hidden="true">
+          <img src="fotos/papoi-8bit.png" alt="" width="512" height="568">
+          <span class="puntero"></span>
+        </div>
+        <div class="tablero">
+          <p class="contador" id="contador" aria-live="polite"></p>
+          <div class="scroller" id="scroller" tabindex="0" aria-labelledby="titulo-motivos">
+            <div class="track" id="track"></div>
+          </div>
+        </div>
+      </div>
+      <div class="acciones">
+        <button id="btn-mensaje" class="boton" type="button">Un mensaje para ti</button>
+        <button id="btn-musica" class="boton boton-sec" type="button" aria-pressed="false" hidden>♪ Música</button>
+      </div>
+    </section>
+
+    <div class="tv">
+      <div class="pantalla">
+        <div class="slide"><img class="bg" alt="" aria-hidden="true"><img class="fg" alt="Recuerdo para Paula"></div>
+        <div class="slide"><img class="bg" alt="" aria-hidden="true"><img class="fg" alt="Recuerdo para Paula"></div>
+      </div>
+      <div class="panel" aria-hidden="true"><span></span><span></span><i></i></div>
+    </div>
+  </main>
+
+  <dialog id="mensaje">
+    <p id="mensaje-texto"></p>
+    <form method="dialog"><button class="boton" type="submit">Te amo 💛</button></form>
+  </dialog>
+
+  <audio id="musica" src="musica.mp3" loop preload="none"></audio>
+
+  <script src="fotos.js"></script>
+  <script src="motivos.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

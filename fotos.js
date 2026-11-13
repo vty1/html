@@ -1,0 +1,25 @@
+// Fotos que rotan en el carrusel (papoi.* y 1.jpg se usan aparte).
+// Para agregar una: ponla en fotos/ y añade su nombre aquí.
+const FOTOS = [
+  "13438cb12c2a495a8b64c5f58eb41557.jpg",
+  "1b23eb16bc8fa842af0cd6f6b4074604.jpg",
+  "2024f437d8bf980d58e448bd0a2b1383.jpg",
+  "2153db7dd5561a83788e9cb6a64e697a.jpg",
+  "26b8291c40cebaa5c23ba9e455457ee2.jpg",
+  "33d2eb718ab62c554abba1ce01414f5b.jpg",
+  "36c3bf4c6b99e02f12690894861c34e1.jpg",
+  "3a5ed6a3751af0457d7daaa5eb8a541e.jpg",
+  "41009853a18f0462b20f4a24453f502b.jpg",
+  "462d3974ca51b8822871294b99706550.jpg",
+  "52fb4dc8d52169d5474e8f900f55d5f3.jpg",
+  "84de39aa05b3ce58564c7600e129a28d.jpg",
+  "87ce2da57789aaaee65168d4cc284337.jpg",
+  "8ed6ad3727bd673c5a60f227546431ad.jpg",
+  "bf121afe62ee40d150e453ae22f87468.jpg",
+  "c64130670c8018efbcae2e5fef75d711.jpg",
+  "c9036c251f6650166a3f4ea1f1dd9b3a.jpg",
+  "e8c90695613852350242f8a8e27ee3fe.jpg",
+  "ecf58b652a029beaf379c7b64d153168.jpg",
+  "f8b333ffd47a0dd92f76d8a461474fac.jpg",
+  "fba6b587d4d57e6e6d21b4c77a91e9ce.jpg",
+];
